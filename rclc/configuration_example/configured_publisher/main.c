@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-#include <rmw_uros/options.h>
+/* #include <rmw_uros/options.h> */
 
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){printf("Failed status on line %d: %d. Aborting.\n",__LINE__,(int)temp_rc); return 1;}}
 #define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){printf("Failed status on line %d: %d. Continuing.\n",__LINE__,(int)temp_rc);}}
@@ -40,8 +40,8 @@ int main(int argc, char * const argv[])
 	printf("Connecting to agent %s:%d\n",argv[1],atoi(argv[2]));
 	RCCHECK(rcl_init_options_init(&init_options, allocator));
 	rmw_init_options_t* rmw_options = rcl_init_options_get_rmw_init_options(&init_options);
-	RCCHECK(rmw_uros_options_set_udp_address(argv[1], argv[2], rmw_options))
-	RCCHECK(rmw_uros_options_set_client_key(0xCAFEBABA, rmw_options))
+/*	RCCHECK(rmw_uros_options_set_udp_address(argv[1], argv[2], rmw_options)) */
+/*	RCCHECK(rmw_uros_options_set_client_key(0xCAFEBABA, rmw_options)) */
 
 	// create init_options
 	RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator));

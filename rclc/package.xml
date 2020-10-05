@@ -20,7 +20,7 @@
 
   <!-- configured_publisher and configured_subscriber-->
   <depend>geometry_msgs</depend>
-  <depend>rmw_microxrcedds</depend>
+  <depend>rmw_zenoh_cpp</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include <rmw_uros/options.h>
+/* #include <rmw_uros/options.h> */
 
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){printf("Failed status on line %d: %d. Aborting.\n",__LINE__,(int)temp_rc); return 1;}}
 #define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){printf("Failed status on line %d: %d. Continuing.\n",__LINE__,(int)temp_rc);}}
@@ -35,11 +35,13 @@ int main()
 	RCCHECK(rcl_init_options_init(&init_options, allocator));
 	rmw_init_options_t* rmw_options = rcl_init_options_get_rmw_init_options(&init_options);
 
+	/*
 	// Auto discover micro-ROS agent
 	if(rmw_uros_discover_agent(rmw_options) != RCL_RET_OK){
 		printf("micro-ROS agent not found\n");
 		return 1;
 	}
+	*/
 
 	// create init_options
 	RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator));
